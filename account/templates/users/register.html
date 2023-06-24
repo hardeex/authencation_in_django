@@ -1,0 +1,28 @@
+{% extends 'users/base.html' %} 
+{% block title %} REGISTER {% endblock %}
+
+{% block body %} 
+    <h1>REGISTER</h1><br> <br>
+
+    <div class="form-group"> 
+        <form method="POST">
+            {% csrf_token %} 
+            {{form.as_p}}
+          {% if form.errors %}
+    <div class="alert alert-danger">
+        <ul>
+            {% for field in form %}
+                {% if field.errors %}
+                    {% for error in field.errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div> 
+    </div>
+    {% endif %}
+            <button class="btn btn-primary">Register</button>
+        </form> <br><br> <br>       
+      
+{% endblock %}
