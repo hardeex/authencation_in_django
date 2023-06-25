@@ -24,12 +24,19 @@ class RegisterForm(UserCreationForm):
         self.fields['password1'].widget.attrs['class'] = 'form-control'
         self.fields['password2'].widget.attrs['class'] = 'form-control'
      
-          
+    # validating the registered email to ensure no email address is used multiple times  
     def clean_email(self):
         email = self.cleaned_data.get('email')
         if User.objects.filter(email=email).exists():
             raise forms.ValidationError('Err!: This email address is already in use.')
         return email
+
+    # validating the registered email to ensure no email address is used multiple times 
+    def clean_username(self):
+        username = self.cleaned_data.get('username')
+        if User.objects.filter(email=username).exists():
+            raise forms.ValidationError('Err!: This username is already in use')
+        return username
 
 
 class PasswordChangedForm(PasswordChangeForm):

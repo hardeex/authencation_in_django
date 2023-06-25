@@ -13,7 +13,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 # Create your views here.
 class UserRegisterView(CreateView):
     form_class = RegisterForm
-    template_name = 'users/register.html'
+    template_name = 'registration/register.html'
     success_url = reverse_lazy('login')
 
 
@@ -23,15 +23,19 @@ class ChangePasswordView(PasswordChangeView):
     form_class = PasswordChangedForm    
     success_url = reverse_lazy('account:changed_password_successfully') 
 
-def changed_password_successfully(request):
-    return render(request, 'users/changed_password_successfully.html')
 
+def changed_password_successfully(request):    
+    return render(request, 'registration/changed_password_successfully.html')
+    
+
+def login_success(request):
+    return render(request, 'registration/login_success.html')
 
 
 
 class ForgotPasswordView(SuccessMessageMixin, PasswordResetView):
-    template_name = 'users/forgot_password.html'
-    email_template_name = 'users/forgot_password_email.html'
+    template_name = 'registration/forgot_password.html'
+    email_template_name = 'registration/forgot_password_email.html'
     subject_template_name = 'registration/forgot_password_subject.txt'
     success_message = "We've emailed you instructions for setting your password, " \
                       "if an account exists with the email you entered. You should receive them shortly." \

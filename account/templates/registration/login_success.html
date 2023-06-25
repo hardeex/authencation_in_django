@@ -1,0 +1,18 @@
+{% extends 'registration/base.html' %} 
+{% block title %} Welcome {% endblock %}
+
+{% block body %} 
+
+{% if user.is_authenticated %}
+    <h1> Welcome {{user.first_name}} {{user.last_name}} </h1><br> <br>
+
+    <p>You have successfully logged In.... The authentication works fine</p>
+
+    <hr>
+
+    <p> You can change your password by using <a href="{% url 'account:change_password' %}">Clicking Here...</a> </p>
+{% else %}    
+    <h1> Please, log in to access this page!!!</h1> <br><br>
+    <p>Thanks....</p>
+{% endif %}
+{% endblock %}

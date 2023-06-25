@@ -132,7 +132,7 @@ LOGIN_REDIRECT_URL = 'account:login_success'
 LOGOUT_REDIRECT_URL = 'account:register'
 MEDIA_URL = '/media/'
 MEDIA_ROOT= os.path.join(BASE_DIR, 'media')
-DEFAULT_PROFILE_PIC_URL = 'static/images/profile_user_icon.png'
+#DEFAULT_PROFILE_PIC_URL = 'static/images/profile_user_icon.png'
 
 
 # Email Configuration for the forgot password i talked about
