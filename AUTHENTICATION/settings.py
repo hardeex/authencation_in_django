@@ -133,3 +133,21 @@ LOGOUT_REDIRECT_URL = 'account:register'
 MEDIA_URL = '/media/'
 MEDIA_ROOT= os.path.join(BASE_DIR, 'media')
 DEFAULT_PROFILE_PIC_URL = 'static/images/profile_user_icon.png'
+
+
+# Email Configuration for the forgot password i talked about
+# The same is applicable for contact form
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.example.com'  # Replace with your SMTP server address. it is smtp.gmail.com for gmail
+EMAIL_PORT = 587  # Replace with your SMTP server port. leave as 587 for gmail smtp
+EMAIL_HOST_USER = 'example@emailprovider.com'  # Replace with your email address
+EMAIL_HOST_PASSWORD = 'the_generated_password_i_talked_about_in_the_forgot_psd_page'  # Replace with your email password
+EMAIL_USE_TLS = True
+
+# Contact Form Configuration
+DEFAULT_FROM_EMAIL = 'exmaple@emailprovider.com'  # Replace with your email address
+
+# Admin Email Configuration
+ADMINS = [
+    ('your_email_username', 'your_email_address'),  # Replace with the admin's name and email address
+]
